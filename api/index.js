@@ -2,7 +2,7 @@
 
 import express from "express";
 import dotenv from "dotenv";
-import controllerUser from "./controller/userController.js";
+import userController from "./controller/userController.js";
 import projectController from "./controller/projectController.js"
 import registerProjectPerson from "./services/registerField.js";
 
@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use('/', controllerUser);
+app.use('/', userController);
 app.use('/' ,projectController)
 
 app.post('/register/fields', registerProjectPerson);
