@@ -1,14 +1,14 @@
 import supabase from "../repositories/connection.js";
-const project = async (req, res) => {
+const content = async (req, res) => {
     const { data, error } = await supabase
-        .from("Project")  
-        .select("id")       
-        .eq("name", req.body.name)
+        .from("Person_Project")  
+        .select("type,content")       
+        .eq("id", req.body.id)
     if (error) {
             res.status("Erro ao buscar dados:").send(error.message);
         } else {
             if (data && data.length > 0) {
-                res.send({ project: data});
+                res.send({ valores: data});
             } else {
                 res.send("Credenciais inválidas.");
                 res.send({ message: "Credenciais inválidas."});
@@ -19,4 +19,4 @@ const project = async (req, res) => {
 
 
 
-export default project;
+export default content;

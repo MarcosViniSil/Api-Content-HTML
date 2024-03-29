@@ -7,7 +7,7 @@ const registerProject = async (req, res) => {
     if (error) {
       res.send(error);
     }
-    res.send(req.body.name);
+    res.send({ project: req.body.name });
 
 };
 

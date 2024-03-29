@@ -4,6 +4,7 @@ const registerUser = async (req, res) =>{
   console.log("validateEmail(req.body.email)",validateEmail(req.body.email))
   console.log("req.body.password.length>=8",req.body.password.length>=8)
   console.log(req.body.password.length)
+  console.log("req.body.password",req.body.password)
     if(validateEmail(req.body.email) && (req.body.password.length>=8 && req.body.password.length<=20)){
     const { error } = await supabase.from("Person").insert({
         
@@ -15,9 +16,9 @@ const registerUser = async (req, res) =>{
       if (error) {
         res.send(error);
       }
-      res.send("created!!");
+      res.send({ message: req.body.email });
     }else{
-        res.send("Usuario invalido");
+        res.send({ message: "Usuario invalido"});
     }
 }
 

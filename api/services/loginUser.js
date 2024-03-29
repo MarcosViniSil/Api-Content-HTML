@@ -13,13 +13,13 @@ const loginUser = async (req, res) =>{
         res.status("Erro ao buscar dados:").send(error.message);
     } else {
         if (data && data.length > 0) {
-            res.send(req.body.email)
+            res.send({ email: req.body.email });
         } else {
-            res.send("Credenciais inválidas.");
+            res.send({ message: "Credenciais inválidas." });
         }
     }
     }else{
-        res.send("Informações inválidas.");
+        res.send({ message: "Credenciais inválidas." });
     }
 }
 
