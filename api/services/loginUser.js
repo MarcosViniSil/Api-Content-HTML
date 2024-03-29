@@ -13,7 +13,7 @@ const loginUser = async (req, res) =>{
         res.status("Erro ao buscar dados:").send(error.message);
     } else {
         if (data && data.length > 0) {
-            res.send("sucesso!")
+            res.send(req.body.email)
         } else {
             res.send("Credenciais inválidas.");
         }
